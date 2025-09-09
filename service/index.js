@@ -25,18 +25,19 @@ app.post("/send-email", async (req, res) => {
   to: "lutonceramic@gmail.com",
   subject: `New Inquiry from ${name}`,
   html: `
-    <h2>New Inquiry Received</h2>
+    <h2>New Inquiry Received!!</h2>
     <p><b>Name:</b> ${name}</p>
     <p><b>Email:</b> ${email}</p>
     <p><b>Phone:</b> ${phone}</p>
+    <p><b>City:</b> ${city}</p>
     <p><b>Message:</b><br/>${message}</p>
   `,
 });
 
-    res.json({ success: true, message: "✅ Email sent successfully!" });
+    res.json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
     console.error("Email Error:", error);
-    res.status(500).json({ success: false, message: "❌ Failed to send email." });
+    res.status(500).json({ success: false, message: "Failed to send email." });
   }
 });
 
